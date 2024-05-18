@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,23 @@ namespace TesteCandidatoTriangulo
         public int ResultadoTriangulo(string dadosTriangulo)
         {
 
-            return 0;
+            var triangulo = JsonConvert.DeserializeObject<int[][]>(dadosTriangulo);
+
+            var array = new int[triangulo[triangulo.Length - 1].Length];
+            for (int i = 0; i < triangulo[triangulo.Length - 1].Length; i++)
+            {
+                array[i] = triangulo[triangulo.Length - 1][i];
+            }
+
+            for (int i = triangulo.Length - 2; i >= 0; i--)
+            {
+                for (int j = 0; j < triangulo[i].Length; j++)
+                {
+                    array[j] = triangulo[i][j] + Math.Max(array[j], array[j + 1]);
+                }
+            }
+
+            return array[0];
         }
     }
 }
