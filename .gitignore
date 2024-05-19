@@ -32,8 +32,10 @@ ipch/
 *.mdf
 *.ldf
 *.cache
-**/obj/Debug
+**/obj
 bin/
+**/lib
+
 
 
 
