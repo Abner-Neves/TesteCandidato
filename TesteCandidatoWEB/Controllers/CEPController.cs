@@ -15,9 +15,16 @@ namespace TesteCandidatoWEB.Controllers
         }
 
         // GET: Cep
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string uf)
         {
-            return View(await _context.Ceps.ToListAsync());
+            var ceps = from c in _context.Ceps select c;
+
+            if (!string.IsNullOrEmpty(uf))
+            {
+                ceps = ceps.Where(c => c.Uf.ToUpper() == uf.ToUpper());
+            }
+
+            return View(await ceps.ToListAsync());
         }
 
         // GET: Cep/Create

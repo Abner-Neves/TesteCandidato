@@ -2,30 +2,45 @@
 
 <h1>Lista de CEPs</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Cep</th>
-            <th>Logradouro</th>
-            <th>Complemento</th>
-            <th>Bairro</th>
-            <th>Localidade</th>
-            <th>UF</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+<form method="get" asp-action="Index">
+    <div class="form-group">
+        <label for="uf">Filtre por UF:</label>
+        <input type="text" id="uf" name="uf" class="form-control" maxlength="2" />
+    </div>
+    <button type="submit" class="btn btn-primary">Pesquisar</button>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item.NumeroCep</td>
-                <td>@item.Logradouro</td>
-                <td>@item.Complemento</td>
-                <td>@item.Bairro</td>
-                <td>@item.Localidade</td>
-                <td>@item.Uf</td>
+                <th>Cep</th>
+                <th>Logradouro</th>
+                <th>Complemento</th>
+                <th>Bairro</th>
+                <th>Localidade</th>
+                <th>UF</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.NumeroCep</td>
+                    <td>@item.Logradouro</td>
+                    <td>@item.Complemento</td>
+                    <td>@item.Bairro</td>
+                    <td>@item.Localidade</td>
+                    <td>@item.Uf</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nenhum CEP encontrado</p>
+}
 
 <a asp-action="Create" class="btn btn-primary">Novo</a>
