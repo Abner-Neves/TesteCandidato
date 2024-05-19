@@ -13,47 +13,47 @@
         <form asp-action="Create">
             <div class="form-group">
                 <label asp-for="NumeroCep" class="control-label"></label>
-                <input asp-for="NumeroCep" class="form-control" />
+                <input asp-for="NumeroCep" class="form-control" id="cepInput"/>
                 <span asp-validation-for="NumeroCep" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Logradouro" class="control-label"></label>
-                <input asp-for="Logradouro" class="form-control" />
+                <input asp-for="Logradouro" class="form-control" id="logradouroInput" readonly/>
                 <span asp-validation-for="Logradouro" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Complemento" class="control-label"></label>
-                <input asp-for="Complemento" class="form-control" />
+                <input asp-for="Complemento" class="form-control" id="complementoInput"/>
                 <span asp-validation-for="Complemento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Bairro" class="control-label"></label>
-                <input asp-for="Bairro" class="form-control" />
+                <input asp-for="Bairro" class="form-control" id="bairroInput" readonly/>
                 <span asp-validation-for="Bairro" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Localidade" class="control-label"></label>
-                <input asp-for="Localidade" class="form-control" />
+                <input asp-for="Localidade" class="form-control" id="localidadeInput" readonly/>
                 <span asp-validation-for="Localidade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Uf" class="control-label"></label>
-                <input asp-for="Uf" class="form-control" />
+                <input asp-for="Uf" class="form-control" id="ufInput" readonly/>
                 <span asp-validation-for="Uf" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Unidade" class="control-label"></label>
-                <input asp-for="Unidade" class="form-control" />
+                <input asp-for="Unidade" class="form-control" id="unidadeInput" />
                 <span asp-validation-for="Unidade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Ibge" class="control-label"></label>
-                <input asp-for="Ibge" class="form-control" />
+                <input asp-for="Ibge" class="form-control" id="ibgeInput" readonly/>
                 <span asp-validation-for="Ibge" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Gia" class="control-label"></label>
-                <input asp-for="Gia" class="form-control" />
+                <input asp-for="Gia" class="form-control" id="giaInput" readonly/>
                 <span asp-validation-for="Gia" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -69,4 +69,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/buscaCep.js"></script>
 }
